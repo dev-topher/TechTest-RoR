@@ -1,4 +1,4 @@
-# MVP Minera
+# Examen Técnico
 
 Mi entorno de prueba posee las siguientes características:
 
@@ -17,6 +17,8 @@ Mi entorno de prueba posee las siguientes características:
 * gem "popper_js", "~> 2.11"
 * gem "figaro" , "~> 1.2"
 * gem "devise", "~> 4.9"
+* gem "whenever", "~> 1.0"
+
 
 ## Instalación
 
@@ -59,24 +61,29 @@ db_production: techtest_production
 Una vez realizado estos pasos puedes usar:
 
 ```bash
+rails db:create
+rails db:migrate
+rails db:seed
 rails s
 ```
 
-para inicializar el proyecto y probarlo en la url base (http://127.0.0.1:300).
+para crear la base de datos, insertar un usuario base (también se puede registrar dentro del sistema) e inicializar el proyecto y probarlo en la url base (http://127.0.0.1:300).
 
 
-# Changelog
+## Changelog
 
-* 28/08/23 - Creación de proyecto. Versionamiento e instalación de gemas. README base. Diseño de base de datos.
+* 28/08/23 - Creación de proyecto. Versionamiento e instalación de gemas. README base. Diseño y creación de base de datos (migraciones). Diseño del front-end base. Uso de devise para acceder a los datos.
 
-
-* 29/08/23 - 
+* 29/08/23 - CRUD de Restoranes y Dispositivos. Desarrollo de APIs para reportes
 
 * 30/08/23 - 
 
 * 31/08/23 - 
 
-* 01/09/23 - 
-
 ### TO-DO:
 
+* Crear las tareas programadas para la actualización cada 30s.
+* Crear API para los reportes remotos de información.
+* Terminar modal para modificaciones/eliminaciones de datos.
+* Rellenar front-end previo al login.
+* Vistas de Log-in y registro modificados.

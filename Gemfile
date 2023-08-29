@@ -79,6 +79,4 @@ gem "figaro" , "~> 1.2"
 
 gem "devise", "~> 4.9"
 
-gem "kaminari", "~> 1.2.2"
-
-gem "faker", "~> 3.2.1"
+gem "whenever", "~> 1.0"
