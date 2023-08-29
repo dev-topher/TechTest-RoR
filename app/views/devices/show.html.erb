@@ -1,10 +1,56 @@
-<p style="color: green"><%= notice %></p>
+<%= render "shared/navbar" %>
 
-<%= render @device %>
-
-<div>
-  <%= link_to "Edit this client", edit_device_path(@device) %> |
-  <%= link_to "Back to clients", devices_path %>
-
-  <%= button_to "Destroy this client", @device, method: :delete %>
+<div class="container">
+  <div class="row py-5">
+    <div class="col-12">
+      <h2 class="text-center">Dispositivo #<%= @device.id %></h2>
+    </div>
+  </div>
+    <div class="row py-3">
+      <div class="col-6">Nombre del dispositivo:</div>
+      <div class="col-6"><%= @device.name %></div>
+    </div>
+    <div class="row py-3">
+      <div class="col-6">Estado:</div>
+      <div class="col-6"><%= @device.status_dev %></div>
+    </div>
+    <div class="row py-3">
+      <div class="col-6">Restaurant asociado:</div>
+      <div class="col-6"><%= @device.restaurant.name %></div>
+  </div>
+  <div class="row py-3">
+    <div class="col-6">Actualizado en: </div>
+    <div class="col-6"><%= @device.updated_at %></div>
+  </div>
+  <div class="row py-5">
+    <div class="col-4">
+      <a href="<%= devices_path %>" class="btn btn-primary w-100">Volver</a>
+    </div>
+    <div class="col-4">
+      <a href="<%= edit_device_path(@device.id) %>" class="btn btn-warning w-100">Modificar</a>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#eliminarModal">Eliminar</button>
+    </div>
+  </div>
 </div>
+
+<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="eliminarModalLabel">Eliminar dispositivo#<%= @device.id %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de desear eliminar el dispositivo #<%= @device.id %>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <%= button_to "Eliminar", @device, method: :delete, class: "btn btn-danger w-100" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

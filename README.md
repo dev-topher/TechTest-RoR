@@ -74,7 +74,7 @@ para crear la base de datos, insertar un usuario base (también se puede registr
 
 * 28/08/23 - Creación de proyecto. Versionamiento e instalación de gemas. README base. Diseño y creación de base de datos (migraciones). Diseño del front-end base. Uso de devise para acceder a los datos.
 
-* 29/08/23 - CRUD de Restoranes y Dispositivos. Desarrollo de APIs para reportes
+* 29/08/23 - CRUD de Restoranes y Dispositivos. Desarrollo de API para Devices y Restaurants.
 
 * 30/08/23 - 
 
@@ -82,8 +82,8 @@ para crear la base de datos, insertar un usuario base (también se puede registr
 
 ### TO-DO:
 
+* ~~Crear API para los reportes remotos de información.~~
+* ~~Terminar modal para modificaciones/eliminaciones de datos.~~
 * Crear las tareas programadas para la actualización cada 30s.
-* Crear API para los reportes remotos de información.
-* Terminar modal para modificaciones/eliminaciones de datos.
 * Rellenar front-end previo al login.
 * Vistas de Log-in y registro modificados.

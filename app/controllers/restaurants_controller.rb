@@ -5,13 +5,12 @@ class RestaurantsController < ApplicationController
     # GET /restaurants or /restaurants.json
     def index
       @restaurants = Restaurant.all
-
       @restaurant = Restaurant.new
-
     end
   
     # GET /restaurants/1 or /restaurants/1.json
     def show
+      @restaurant = Restaurant.find(params[:id])
     end
   
     # GET /restaurants/new
@@ -21,6 +20,7 @@ class RestaurantsController < ApplicationController
   
     # GET /restaurants/1/edit
     def edit
+      @restaurant = Restaurant.find(params[:id])
     end
   
     # POST /restaurants or /restaurants.json
@@ -30,10 +30,8 @@ class RestaurantsController < ApplicationController
       respond_to do |format|
         if @restaurant.save
           format.html { redirect_to restaurants_path, notice: "El restaurante se creó correctamente." }
-          format.json { render :show, status: :created, location: @restaurant }
         else
           format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @restaurant.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -43,10 +41,8 @@ class RestaurantsController < ApplicationController
       respond_to do |format|
         if @restaurant.update(restaurant_params)
           format.html { redirect_to restaurants_path, notice: "El restaurante se actualizó correctamente." }
-          format.json { render :show, status: :ok, location: @restaurant }
         else
           format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @restaurant.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -57,7 +53,6 @@ class RestaurantsController < ApplicationController
   
       respond_to do |format|
         format.html { redirect_to restaurant_url, notice: "El restaurante se eliminó correctamente." }
-        format.json { head :no_content }
       end
     end
   

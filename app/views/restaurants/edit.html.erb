@@ -1,10 +1,48 @@
-<h1>Editing client</h1>
+<%= render "shared/navbar" %>
 
-<%= render "form" #, restaurant: @restaurant %>
+<div class="container">
+    <div class="row py-5">
+        <div class="col">
+            <h2 class="text-center">Modificar Restaurante #<%= @restaurant.id %></h2>
+        </div>
+    </div>
 
-<br>
+    <%= form_with(model: @restaurant) do |form| %>
+    <% if @restaurant.errors.any? %>
+        <div style="color: red">
+        <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 
-<div>
-  <%= link_to "Show this client", @restaurant %> |
-  <%= link_to "Back to clients", restaurants_path %>
+        <ul>
+            <% @restaurant.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class="row py-3">
+        <div class="col-12">
+            <%= form.label :name, class: "form-label", style: "display: block" %>
+            <%= form.text_field :name, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="row py-3">
+        <div class="col-12">
+            <%= form.label :status_rest, style: "display: block" %>
+            <select class="form-select" aria-label="Default select example" name="restaurant[status_rest]" for="status_rest">
+                <option value="Ok">Ok</option>
+                <option value="Warning">Warning</option>
+                <option value="Error">Error</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row py-5">
+        <button type="submit" class="btn btn-success w-100">Actualizar</button>
+    </div>
+    <% end %>
+
 </div>
+
+<%= render "shared/footer" %>
